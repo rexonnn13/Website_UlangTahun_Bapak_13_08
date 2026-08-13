@@ -1,0 +1,1009 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selamat Ulang Tahun, Bapak — Gerbang Karantina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;700&family=Public+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #f6f2e7;
+        --paper-2: #efe9d8;
+        --ink: #1b1b18;
+        --ink-soft: #4a473e;
+        --hazard: #f2b705;
+        --biru: #0b4f6c;
+        --merah: #c31230;
+        --hijau: #1f7a4d;
+        --line: #cfc6ac;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Public Sans", sans-serif;
+        background: var(--paper);
+        color: var(--ink);
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      /* ---------- Hazard stripe bars ---------- */
+      .hazard-bar {
+        width: 100%;
+        height: 22px;
+        background: repeating-linear-gradient(
+          135deg,
+          var(--hazard) 0 18px,
+          var(--ink) 18px 36px
+        );
+        position: relative;
+        z-index: 3;
+        animation: stripeMove 6s linear infinite;
+      }
+      @keyframes stripeMove {
+        from {
+          background-position: 0 0;
+        }
+        to {
+          background-position: 102px 0;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .hazard-bar {
+          animation: none;
+        }
+      }
+
+      .kop-strip {
+        background: var(--biru);
+        color: #fff;
+        text-align: center;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        padding: 8px 12px;
+        position: relative;
+        z-index: 3;
+      }
+
+      main {
+        position: relative;
+        z-index: 2;
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 0 20px 90px;
+      }
+
+      /* ---------- Letterhead ---------- */
+      .letterhead {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 26px 0 18px;
+        border-bottom: 3px double var(--ink);
+        margin-bottom: 6px;
+      }
+      .letterhead-icon {
+        width: 54px;
+        height: 54px;
+        flex-shrink: 0;
+        border: 2px solid var(--biru);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--biru);
+      }
+      .letterhead-icon svg {
+        width: 28px;
+        height: 28px;
+      }
+      .letterhead-text h1 {
+        font-family: "Oswald", sans-serif;
+        font-weight: 700;
+        font-size: 1.05rem;
+        letter-spacing: 0.02em;
+        color: var(--ink);
+        text-transform: uppercase;
+      }
+      .letterhead-text p {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.68rem;
+        color: var(--ink-soft);
+        letter-spacing: 0.04em;
+        margin-top: 2px;
+      }
+      .doc-meta {
+        text-align: right;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.66rem;
+        color: var(--ink-soft);
+        letter-spacing: 0.05em;
+        line-height: 1.6;
+        margin-left: auto;
+      }
+
+      /* ---------- HERO / gerbang scan ---------- */
+      .hero {
+        padding: 50px 0 34px;
+        text-align: center;
+        position: relative;
+      }
+      .watermark {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 440px;
+        height: 440px;
+        transform: translate(-50%, -50%);
+        border: 1.5px dashed rgba(11, 79, 108, 0.18);
+        border-radius: 50%;
+        animation: spinSlow 70s linear infinite;
+        pointer-events: none;
+      }
+      .watermark::before {
+        content: "REPUBLIK INDONESIA";
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.6rem;
+        letter-spacing: 0.3em;
+        color: rgba(11, 79, 108, 0.22);
+      }
+      @keyframes spinSlow {
+        to {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .watermark {
+          animation: none;
+        }
+      }
+
+      .gate {
+        position: relative;
+        width: min(320px, 82vw);
+        height: 170px;
+        margin: 0 auto 30px;
+        border: 3px solid var(--ink);
+        border-radius: 10px 10px 0 0;
+        background: linear-gradient(
+          180deg,
+          rgba(11, 79, 108, 0.06),
+          rgba(11, 79, 108, 0.01)
+        );
+        overflow: hidden;
+      }
+      .gate::before,
+      .gate::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 10px;
+        background: repeating-linear-gradient(
+          135deg,
+          var(--hazard) 0 6px,
+          var(--ink) 6px 12px
+        );
+      }
+      .gate::before {
+        left: 0;
+      }
+      .gate::after {
+        right: 0;
+      }
+      .scan-line {
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        height: 3px;
+        background: var(--hijau);
+        box-shadow: 0 0 12px 3px rgba(31, 122, 77, 0.7);
+        animation: scanMove 2.4s ease-in-out infinite;
+      }
+      @keyframes scanMove {
+        0% {
+          top: 8%;
+        }
+        50% {
+          top: 88%;
+        }
+        100% {
+          top: 8%;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .scan-line {
+          animation: none;
+          top: 50%;
+        }
+      }
+      .gate-label {
+        position: absolute;
+        bottom: 8px;
+        left: 0;
+        right: 0;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.58rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+      }
+      .gate-status {
+        position: absolute;
+        top: 10px;
+        right: 16px;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.6rem;
+        letter-spacing: 0.1em;
+        color: var(--hijau);
+        font-weight: 700;
+        border: 1px solid var(--hijau);
+        padding: 2px 7px;
+        border-radius: 3px;
+      }
+      .gate-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -56%);
+        width: 56px;
+        height: 56px;
+        color: var(--biru);
+        opacity: 0.85;
+      }
+
+      .eyebrow {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--merah);
+        margin-bottom: 2px;
+      }
+      h1.title {
+        font-family: "Oswald", sans-serif;
+        font-weight: 700;
+        font-size: clamp(2.1rem, 6vw, 3.4rem);
+        line-height: 1.05;
+        letter-spacing: 0.01em;
+        color: var(--ink);
+        margin-bottom: 14px;
+      }
+      h1.title span {
+        color: var(--biru);
+      }
+      .subtitle {
+        max-width: 540px;
+        margin: 0 auto;
+        font-size: 1rem;
+        line-height: 1.75;
+        color: var(--ink-soft);
+        font-weight: 300;
+      }
+
+      /* ---------- Section head ---------- */
+      .section-head {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        margin: 52px 0 22px;
+      }
+      .section-head .tag {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.66rem;
+        letter-spacing: 0.12em;
+        background: var(--ink);
+        color: var(--paper);
+        padding: 4px 9px;
+        border-radius: 2px;
+        white-space: nowrap;
+      }
+      .section-head h2 {
+        font-family: "Oswald", sans-serif;
+        font-size: 1.35rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: var(--ink);
+      }
+      .section-head .rule {
+        flex: 1;
+        height: 1px;
+        background: var(--line);
+        align-self: center;
+      }
+
+      /* ---------- Form fields ---------- */
+      .form-box {
+        border: 1.5px solid var(--ink);
+        border-radius: 4px;
+        background: var(--paper-2);
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 190px 1fr auto;
+        align-items: baseline;
+        gap: 10px;
+        padding: 16px 20px;
+        border-bottom: 1px dashed var(--line);
+      }
+      .form-row:last-child {
+        border-bottom: none;
+      }
+      .form-label {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+      }
+      .form-value {
+        font-size: 0.92rem;
+        line-height: 1.6;
+        color: var(--ink);
+        border-bottom: 1px dotted var(--line);
+        padding-bottom: 6px;
+      }
+      .form-status {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.66rem;
+        letter-spacing: 0.08em;
+        color: var(--hijau);
+        border: 1px solid var(--hijau);
+        padding: 3px 8px;
+        border-radius: 3px;
+        white-space: nowrap;
+        height: fit-content;
+      }
+
+      /* ---------- Surat Keputusan ---------- */
+      .sk {
+        background: #fff;
+        border: 1.5px solid var(--ink);
+        border-radius: 4px;
+        padding: 34px 30px;
+        position: relative;
+      }
+      .sk-head {
+        text-align: center;
+        margin-bottom: 22px;
+      }
+      .sk-head .sk-kop {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.64rem;
+        letter-spacing: 0.14em;
+        color: var(--ink-soft);
+        text-transform: uppercase;
+      }
+      .sk-head h3 {
+        font-family: "Oswald", sans-serif;
+        font-weight: 700;
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        color: var(--ink);
+        margin: 8px 0 3px;
+      }
+      .sk-head .sk-nomor {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.66rem;
+        color: var(--merah);
+      }
+      .sk-clause {
+        margin-bottom: 16px;
+      }
+      .sk-clause .label {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--biru);
+        display: block;
+        margin-bottom: 5px;
+      }
+      .sk-clause p {
+        font-size: 0.92rem;
+        line-height: 1.75;
+        color: var(--ink);
+      }
+      .sk-clause ol {
+        padding-left: 20px;
+      }
+      .sk-clause li {
+        font-size: 0.92rem;
+        line-height: 1.8;
+        color: var(--ink);
+      }
+
+      .sk-sign {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 28px;
+      }
+      .sk-sign-block {
+        text-align: center;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.68rem;
+        color: var(--ink-soft);
+      }
+      .sk-sign-block .place {
+        margin-bottom: 20px;
+      }
+
+      .ttd {
+        margin-bottom: 20px;
+        font-weight: 1000;
+      }
+
+      .sk-sign-block .name {
+        color: var(--ink);
+        font-weight: 700;
+        border-top: 1px solid var(--ink);
+        padding-top: 4px;
+        text-transform: uppercase;
+      }
+      .sk-seal {
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+        width: 72px;
+        height: 72px;
+        border: 2px solid var(--merah);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: rotate(-14deg);
+        opacity: 0.85;
+      }
+      .sk-seal-inner {
+        width: 80%;
+        height: 80%;
+        border: 1px solid var(--merah);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.5rem;
+        color: var(--merah);
+        text-align: center;
+        letter-spacing: 0.05em;
+      }
+
+      /* ---------- Footer ---------- */
+      footer {
+        text-align: center;
+        margin-top: 48px;
+      }
+      .motto {
+        font-family: "Oswald", sans-serif;
+        font-weight: 600;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        color: var(--biru);
+        margin-bottom: 6px;
+      }
+      .motto-sub {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.64rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+      }
+
+      /* ---------- Music toggle ---------- */
+      .music-toggle {
+        position: fixed;
+        top: 36px;
+        right: 16px;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--ink);
+        border: 2px solid var(--hazard);
+        color: var(--paper);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.64rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 9px 14px;
+        border-radius: 3px;
+        cursor: pointer;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+        transition:
+          background 0.2s ease,
+          transform 0.2s ease;
+      }
+      .music-toggle:hover {
+        background: #302f28;
+        transform: translateY(-1px);
+      }
+      .music-toggle:active {
+        transform: translateY(0);
+      }
+      .music-icon {
+        display: inline-block;
+        font-size: 0.95rem;
+      }
+      .music-toggle.playing .music-icon {
+        animation: bounce 0.5s ease-in-out infinite alternate;
+      }
+      @keyframes bounce {
+        0% {
+          transform: translateY(0) rotate(-8deg);
+        }
+        100% {
+          transform: translateY(-3px) rotate(8deg);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .music-toggle.playing .music-icon {
+          animation: none;
+        }
+      }
+      @media (max-width: 520px) {
+        .music-toggle {
+          top: auto;
+          bottom: 16px;
+          right: 16px;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .form-row {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+        .form-status {
+          justify-self: start;
+        }
+        .letterhead {
+          flex-wrap: wrap;
+        }
+        .doc-meta {
+          text-align: left;
+          margin-left: 0;
+        }
+        .sk-sign {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hazard-bar"></div>
+    <div class="kop-strip">
+      Badan Karantina Hewan, Ikan, &amp; Tumbuhan kepri Pengendalian Mutu &amp;
+      Keamanan Hasil Perikanan
+    </div>
+
+    <button id="musicToggle" class="music-toggle" aria-pressed="false">
+      <span class="music-icon">🎧</span>
+      <span class="music-label">Putar Musik</span>
+    </button>
+
+    <main>
+      <div class="letterhead">
+        <div class="letterhead-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M2 16s2-2 4-2 3 2 5 2 3-2 5-2 4 2 4 2"></path>
+            <path d="M6 12c1-4 4-8 9-9-1 4-1 7 1 9-3 1-6 1-8-1"></path>
+          </svg>
+        </div>
+        <div class="letterhead-text">
+          <h1>Balai Karantina Hewan, ikan &amp; Tumbuhan serta Keluarga</h1>
+          <p>Unit Pemeriksaan Kasih Sayang &amp; Kebahagiaan</p>
+        </div>
+        <div class="doc-meta">
+          NOMOR: KI.KEL/ULTAH/2026/001<br />
+          SIFAT: PENTING &amp; MEMBAHAGIAKAN
+        </div>
+      </div>
+
+      <section class="hero">
+        <div class="watermark"></div>
+
+        <div class="gate">
+          <div class="gate-status">LULUS</div>
+          <svg
+            class="gate-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="5" r="2"></circle>
+            <line x1="12" y1="7" x2="12" y2="21"></line>
+            <path d="M5 12H2a10 10 0 0 0 20 0h-3"></path>
+          </svg>
+          <div class="scan-line"></div>
+          <div class="gate-label">
+            Gerbang Pemeriksaan &middot; Bebas Karantina
+          </div>
+        </div>
+
+        <div class="eyebrow">Hasil Pemeriksaan &middot; 13 Agustus</div>
+        <h1 class="title">
+          SELAMAT ULANG TAHUN,<br /><span>BAPAK IWAN SETIAWAN, S.Pi.</span>
+        </h1>
+        <p class="subtitle">
+          Melewati gerbang pemeriksaan hidup dengan predikat bebas cela — Bapak
+          dinyatakan sehat, berkualitas, dan layak menjadi teladan keluarga hari
+          ini dan seterusnya.
+        </p>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <span class="tag">FORM KI-07</span>
+          <h2>Formulir Pemeriksaan Karakter</h2>
+          <div class="rule"></div>
+        </div>
+
+        <div class="form-box">
+          <div class="form-row">
+            <div class="form-label">Ketelitian</div>
+            <div class="form-value">
+              Menjaga setiap keputusan dengan cermat, tanpa kompromi pada
+              kejujuran.
+            </div>
+            <div class="form-status">Lulus</div>
+          </div>
+          <div class="form-row">
+            <div class="form-label">Ketahanan</div>
+            <div class="form-value">
+              Tetap kokoh menghadapi tekanan, seperti karantina yang menahan
+              segala ancaman.
+            </div>
+            <div class="form-status">Lulus</div>
+          </div>
+          <div class="form-row">
+            <div class="form-label">Dedikasi</div>
+            <div class="form-value">
+              Mengabdi pada mutu dan keamanan hasil laut demi bangsa bahari
+              Indonesia.
+            </div>
+            <div class="form-status">Lulus</div>
+          </div>
+          <div class="form-row">
+            <div class="form-label">Kehangatan</div>
+            <div class="form-value">
+              Selalu menjadi pelabuhan teraman untuk pulang, kapan pun
+              dibutuhkan.
+            </div>
+            <div class="form-status">Lulus</div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <span class="tag">SK-01</span>
+          <h2>Surat Keputusan Keluarga</h2>
+          <div class="rule"></div>
+        </div>
+
+        <div class="sk">
+          <div class="sk-head">
+            <div class="sk-kop">Surat Keputusan Keluarga Tercinta</div>
+            <h3>Tentang Penetapan bapak Terbaik</h3>
+            <div class="sk-nomor">Nomor: 13/VIII/2026</div>
+          </div>
+
+          <div class="sk-clause">
+            <span class="label">Menimbang</span>
+            <p>
+              Bahwa bapak telah melewati bertahun-tahun pemeriksaan kehidupan
+              dengan penuh ketelitian, kesabaran, dan cinta, sehingga layak
+              dirayakan pada hari kelahirannya.
+            </p>
+          </div>
+
+          <div class="sk-clause">
+            <span class="label">Memutuskan</span>
+            <ol>
+              <li>
+                Menetapkan Bapak sebagai teladan utama dalam keluarga, berlaku
+                sejak dahulu hingga selamanya.
+              </li>
+              <li>
+                Memberikan predikat <b>LULUS</b> tanpa syarat atas seluruh
+                dedikasi yang telah diberikan.
+              </li>
+              <li>
+                Mendoakan Bapak agar senantiasa diberi kesehatan, umur panjang,
+                dan kebahagiaan.
+              </li>
+            </ol>
+          </div>
+
+          <div class="sk-seal">
+            <div class="sk-seal-inner">SAH<br />&amp; BAHAGIA</div>
+          </div>
+
+          <div class="sk-sign">
+            <div class="sk-sign-block">
+              <div class="place">Ditetapkan di Rumah<br />13 Agustus 2026</div>
+              <div class="ttd">D'AIA Family</div>
+              <div class="name">Keluarga Tercinta</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="motto">&ldquo;Karantina Hebat, Indonesia Kuat&rdquo;</div>
+        <div class="motto-sub">
+          Selamat Ulang Tahun, Bapak — Semoga Panjang Umur &amp; Sehat Selalu
+        </div>
+      </footer>
+    </main>
+
+    <div class="hazard-bar"></div>
+
+    <script>
+      /* ---------- Backsound santai / lo-fi (disintesis, aransemen orisinal) ---------- */
+      (function () {
+        const NOTE_FREQ = {
+          C2: 65.41,
+          D2: 73.42,
+          E2: 82.41,
+          F2: 87.31,
+          G2: 98.0,
+          A2: 110.0,
+          B2: 123.47,
+          C3: 130.81,
+          D3: 146.83,
+          E3: 164.81,
+          F3: 174.61,
+          G3: 196.0,
+          A3: 220.0,
+          B3: 246.94,
+          C4: 261.63,
+          D4: 293.66,
+          E4: 329.63,
+          F4: 349.23,
+          G4: 392.0,
+          A4: 440.0,
+          B4: 493.88,
+          C5: 523.25,
+          D5: 587.33,
+          E5: 659.25,
+          F5: 698.46,
+          G5: 783.99,
+          A5: 880.0,
+          B5: 987.77,
+        };
+
+        const BPM = 78;
+        const STEP = 60 / BPM / 4; // sixteenth note, tempo santai
+        const STEPS_PER_LOOP = 64; // 4 bar, 16 step/bar
+
+        // Progresi hangat ii-V-I-ish: Cmaj7 - Am7 - Fmaj7 - G7, satu chord per bar
+        const chords = [
+          { tones: ["C4", "E4", "G4", "B4"], fifth: "G3", bass: "C3", s: 0 },
+          { tones: ["A3", "C4", "E4", "G4"], fifth: "E3", bass: "A2", s: 16 },
+          { tones: ["F3", "A3", "C4", "E4"], fifth: "C4", bass: "F2", s: 32 },
+          { tones: ["G3", "B3", "D4", "F4"], fifth: "D4", bass: "G2", s: 48 },
+        ];
+
+        let ctx = null;
+        let timer = null;
+        let currentStep = 0;
+        let playing = false;
+
+        function playRhodes(freq, dur, when, vol) {
+          const osc1 = ctx.createOscillator();
+          osc1.type = "sine";
+          osc1.frequency.setValueAtTime(freq, when);
+          const osc2 = ctx.createOscillator();
+          osc2.type = "triangle";
+          osc2.frequency.setValueAtTime(freq, when);
+          osc2.detune.setValueAtTime(4, when);
+
+          const filt = ctx.createBiquadFilter();
+          filt.type = "lowpass";
+          filt.frequency.value = 2200;
+
+          const gain = ctx.createGain();
+          gain.gain.setValueAtTime(0.0001, when);
+          gain.gain.linearRampToValueAtTime(vol, when + 0.03);
+          gain.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+
+          osc1.connect(filt);
+          osc2.connect(filt);
+          filt.connect(gain);
+          gain.connect(ctx.destination);
+          osc1.start(when);
+          osc2.start(when);
+          osc1.stop(when + dur + 0.1);
+          osc2.stop(when + dur + 0.1);
+        }
+
+        function playPad(freq, dur, when, vol) {
+          const osc = ctx.createOscillator();
+          osc.type = "triangle";
+          osc.frequency.setValueAtTime(freq, when);
+          const filt = ctx.createBiquadFilter();
+          filt.type = "lowpass";
+          filt.frequency.value = 1100;
+          const gain = ctx.createGain();
+          gain.gain.setValueAtTime(0.0001, when);
+          gain.gain.linearRampToValueAtTime(vol, when + 0.5);
+          gain.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+          osc.connect(filt);
+          filt.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(when);
+          osc.stop(when + dur + 0.15);
+        }
+
+        function playBassSoft(freq, dur, when) {
+          const osc = ctx.createOscillator();
+          osc.type = "sine";
+          osc.frequency.setValueAtTime(freq, when);
+          const filt = ctx.createBiquadFilter();
+          filt.type = "lowpass";
+          filt.frequency.value = 500;
+          const gain = ctx.createGain();
+          gain.gain.setValueAtTime(0.0001, when);
+          gain.gain.linearRampToValueAtTime(0.16, when + 0.04);
+          gain.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+          osc.connect(filt);
+          filt.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(when);
+          osc.stop(when + dur + 0.1);
+        }
+
+        function playKickSoft(when) {
+          const osc = ctx.createOscillator();
+          osc.type = "sine";
+          osc.frequency.setValueAtTime(95, when);
+          osc.frequency.exponentialRampToValueAtTime(42, when + 0.15);
+          const gain = ctx.createGain();
+          gain.gain.setValueAtTime(0.45, when);
+          gain.gain.exponentialRampToValueAtTime(0.0001, when + 0.22);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(when);
+          osc.stop(when + 0.24);
+        }
+
+        function playBrushSnare(when) {
+          const dur = 0.22;
+          const bufferSize = ctx.sampleRate * dur;
+          const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+          const data = buffer.getChannelData(0);
+          for (let i = 0; i < bufferSize; i++) {
+            data[i] =
+              (Math.random() * 2 - 1) * Math.pow(1 - i / bufferSize, 1.8);
+          }
+          const src = ctx.createBufferSource();
+          src.buffer = buffer;
+          const filt = ctx.createBiquadFilter();
+          filt.type = "bandpass";
+          filt.frequency.value = 1200;
+          filt.Q.value = 0.6;
+          const gain = ctx.createGain();
+          gain.gain.setValueAtTime(0.14, when);
+          src.connect(filt);
+          filt.connect(gain);
+          gain.connect(ctx.destination);
+          src.start(when);
+        }
+
+        function playShakerSoft(when) {
+          const bufferSize = ctx.sampleRate * 0.05;
+          const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+          const data = buffer.getChannelData(0);
+          for (let i = 0; i < bufferSize; i++) {
+            data[i] = (Math.random() * 2 - 1) * (1 - i / bufferSize);
+          }
+          const src = ctx.createBufferSource();
+          src.buffer = buffer;
+          const filt = ctx.createBiquadFilter();
+          filt.type = "highpass";
+          filt.frequency.value = 7000;
+          const gain = ctx.createGain();
+          gain.gain.setValueAtTime(0.025, when);
+          src.connect(filt);
+          filt.connect(gain);
+          gain.connect(ctx.destination);
+          src.start(when);
+        }
+
+        function tick() {
+          const when = ctx.currentTime + 0.02;
+          const barStep = currentStep % 16;
+
+          const chord = chords.find(
+            (c) => currentStep >= c.s && currentStep < c.s + 16,
+          );
+
+          // Kick lembut & snare sikat sekali per bar - groove santai
+          if (barStep === 0) {
+            playKickSoft(when);
+          }
+          if (barStep === 8) {
+            playBrushSnare(when);
+          }
+          if (barStep % 4 === 2) {
+            playShakerSoft(when);
+          }
+
+          if (chord) {
+            // pad hangat & bass empuk di awal bar
+            if (currentStep === chord.s) {
+              playPad(NOTE_FREQ[chord.fifth], STEP * 15, when, 0.05);
+              playBassSoft(NOTE_FREQ[chord.bass], STEP * 8, when);
+            }
+            // arpeggio rhodes santai: satu nada tiap seperempat ketuk
+            const arpIdx = Math.floor(barStep / 4);
+            if (barStep % 4 === 0) {
+              playRhodes(NOTE_FREQ[chord.tones[arpIdx]], STEP * 6, when, 0.15);
+            }
+          }
+
+          currentStep = (currentStep + 1) % STEPS_PER_LOOP;
+        }
+
+        const btn = document.getElementById("musicToggle");
+        const label = btn.querySelector(".music-label");
+        const icon = btn.querySelector(".music-icon");
+
+        btn.addEventListener("click", function () {
+          if (!ctx) {
+            ctx = new (window.AudioContext || window.webkitAudioContext)();
+          }
+          if (ctx.state === "suspended") {
+            ctx.resume();
+          }
+
+          if (!playing) {
+            playing = true;
+            currentStep = 0;
+            timer = setInterval(tick, STEP * 1000);
+            btn.classList.add("playing");
+            btn.setAttribute("aria-pressed", "true");
+            icon.textContent = "🎧";
+            label.textContent = "Musik Santai";
+          } else {
+            playing = false;
+            clearInterval(timer);
+            btn.classList.remove("playing");
+            btn.setAttribute("aria-pressed", "false");
+            icon.textContent = "🎧";
+            label.textContent = "Putar Musik";
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
